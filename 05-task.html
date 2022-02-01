@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5</title>
+</head>
+
+<body>
+    <pre>
+        Задание:
+        Создайте функцию, которая принимает массив значений и возвращает массив с дублирующимися значениями или null если повторяющихся значений в массиве нет.
+    </pre>
+    <script>
+        let values1 = [1, 3, 43, 1, 34, 5, 6, 7, 2, 1, 23, 71, 54];
+        let values2 = [2, 23, 54, 6, 41, 78];
+        let values3 = [3, 4, 6, 8, 2, 5, 9, 0];
+
+        function findDublicat(array) {
+            let result = [];
+
+            for (let i = 0; i < array.length - 1; i++) {
+                const current = array[i];
+
+                for (let k = i + 1; k < array.length; k++) {
+                    const element = array[k];
+
+                    if (current == element) {
+                        if (result.indexOf(current) == -1)
+                            result.push(current);
+                        break;
+                    }
+                }
+            }
+            return result.length != 0 ? result : null;
+        }
+
+        console.log(findDublicat(values1));
+        console.log(findDublicat(values2));
+        console.log(findDublicat(values3));
+    </script>
+</body>
+
+</html>
